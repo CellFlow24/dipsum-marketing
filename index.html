@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dipsum | Your Secure Chat Lounge</title>
+    <style>
+        /* Base Styles & Typography */
+        :root {
+            --primary: #aad052;
+            --secondary: #fb9fa3;
+            --dark: #334155;
+            --light: #fffdf5;
+            --accent: #7a1029;
+        }
+        
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--light);
+            color: var(--dark);
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        /* Animated Gradient Background */
+        .hero-section {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(135deg, #e6c7c3, #d1e49c, #fb9fa3);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            padding: 2rem;
+            z-index: 1;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Floating Elements */
+        .floating-shape {
+            position: absolute;
+            filter: blur(40px);
+            opacity: 0.6;
+            z-index: -1;
+            animation: float 8s ease-in-out infinite;
+        }
+        .shape1 { width: 300px; height: 300px; background: var(--primary); border-radius: 50%; top: 10%; left: 15%; }
+        .shape2 { width: 250px; height: 250px; background: var(--secondary); border-radius: 50%; bottom: 15%; right: 10%; animation-delay: -4s; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-30px) scale(1.05); }
+        }
+
+        /* Hero Content */
+        .hero-content h1 {
+            font-size: 4rem;
+            color: var(--accent);
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 10px rgba(255,255,255,0.5);
+            animation: slideUp 1s ease-out;
+        }
+
+        .hero-content p {
+            font-size: 1.5rem;
+            color: var(--dark);
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+            line-height: 1.6;
+            animation: slideUp 1.2s ease-out;
+        }
+
+        /* Call to Action Buttons */
+        .cta-container {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: slideUp 1.4s ease-out;
+        }
+
+        .btn {
+            padding: 15px 40px;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            text-decoration: none;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            cursor: pointer;
+            border: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+            box-shadow: 0 10px 20px rgba(170, 208, 82, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 25px rgba(170, 208, 82, 0.6);
+            background-color: #9ec246;
+        }
+
+        .btn-secondary {
+            background-color: white;
+            color: var(--accent);
+            border: 2px solid var(--secondary);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+
+        .btn-secondary:hover {
+            transform: translateY(-5px);
+            background-color: var(--secondary);
+            color: white;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .features h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 3rem;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease;
+            border-bottom: 4px solid var(--secondary);
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+        }
+
+        .card-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            display: inline-block;
+            animation: softBreathe 3s ease-in-out infinite;
+        }
+
+        .card h3 {
+            color: var(--accent);
+            margin-bottom: 10px;
+        }
+
+        @keyframes softBreathe { 
+            0% { transform: translateY(0px) scale(1); } 
+            50% { transform: translateY(-6px) scale(1.05); } 
+            100% { transform: translateY(0px) scale(1); } 
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Mockup Display */
+        .mockup-container {
+            margin-top: 4rem;
+            animation: slideUp 1.6s ease-out;
+            perspective: 1000px;
+        }
+
+        .mockup {
+            background: white;
+            padding: 10px;
+            border-radius: 30px;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.2);
+            width: 300px;
+            height: 600px;
+            display: flex;
+            flex-direction: column;
+            border: 8px solid var(--dark);
+            position: relative;
+            transition: transform 0.5s;
+        }
+        
+        .mockup:hover {
+            transform: rotateY(-10deg) rotateX(5deg);
+        }
+
+        .mockup-screen {
+            background: url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2564&auto=format&fit=crop') center/cover;
+            flex: 1;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.5rem;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+        }
+
+    </style>
+</head>
+<body>
+
+    <section class="hero-section">
+        <div class="floating-shape shape1"></div>
+        <div class="floating-shape shape2"></div>
+        
+        <div class="hero-content">
+            <h1>Welcome to Dipsum 🧸</h1>
+            <p>Pull up a cushion and stay a while. Experience end-to-end encrypted chats, 24-hour Moments, and Time Capsules designed for genuine connections.</p>
+            
+            <div class="cta-container">
+                <a href="https://myfirstwebapp-production-82df.up.railway.app/index.html" class="btn btn-primary">
+                    Launch App on Web ✨
+                </a>
+                <a href="https://myfirstwebapp-production-82df.up.railway.app/index.html" class="btn btn-secondary">
+                    Install PWA 📱
+                </a>
+            </div>
+        </div>
+
+        <div class="mockup-container">
+            <div class="mockup">
+                <div class="mockup-screen">Dipsum Lounge</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="features">
+        <h2>Why You'll Love Dipsum</h2>
+        <div class="grid">
+            <div class="card">
+                <div class="card-icon">🔐</div>
+                <h3>Ironclad Security</h3>
+                <p>Built with robust End-to-End Encryption. Your conversations are scrambled and entirely private.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">⏳</div>
+                <h3>Time Capsules</h3>
+                <p>Seal a secret message! Set a timer and send a letter that cannot be opened until the clock hits zero.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">💖</div>
+                <h3>Heartbeat Pings</h3>
+                <p>Thinking of someone? Send a haptic heartbeat animation that fills their screen and vibrates their device.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">📸</div>
+                <h3>Share Moments</h3>
+                <p>Broadcast a 24-hour encrypted photo Moment to your trusted circle. It disappears when the time is up.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer style="text-align: center; padding: 2rem; background: var(--dark); color: white;">
+        <p>© 2026 Dipsum. Crafted with HTML, CSS, and JS.</p>
+    </footer>
+
+</body>
+</html>
